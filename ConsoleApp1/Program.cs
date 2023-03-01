@@ -14,8 +14,15 @@ namespace MyProgram
             Console.WriteLine("Загаданное число (2..12): {0}", userChoice);
             Console.WriteLine("Пользователь кинул кости:");
             
-            RollTheDice(userChoice);
+            RollTheDice(userChoice, "Пользователь");
 
+            Console.WriteLine("Компьютер загадывает число от 2 до 12");
+            Random random = new Random();
+            int computerChoice = random.Next(2, 13);
+            Console.WriteLine("Загаданное число (2..12): {0}", computerChoice);
+            Console.WriteLine("Компьютер кинул кости:");
+            
+            RollTheDice(computerChoice, "Компьютер");
         }
 
         static string PrintDice(int number)
@@ -45,7 +52,7 @@ namespace MyProgram
             }
         }
 
-        static void RollTheDice(int userChoice)
+        static int RollTheDice(int userChoice, string who)
         {
             Random random = new Random();
             int firstDice = random.Next(1, 7);
@@ -59,11 +66,13 @@ namespace MyProgram
 
             if (formula > 0)
             {
-                Console.WriteLine("Пользователь победил");
+                Console.WriteLine("{0} победил", who);
+                return formula;
             }
             else
             {
-                Console.WriteLine("Пользователь проиграл");
+                Console.WriteLine("{0} проиграл", who);
+                return formula;
             }
         }
     }
