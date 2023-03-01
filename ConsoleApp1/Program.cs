@@ -14,7 +14,7 @@ namespace MyProgram
             Console.WriteLine("Загаданное число (2..12): {0}", userChoice);
             Console.WriteLine("Пользователь кинул кости:");
             
-            RollTheDice(userChoice, "Пользователь");
+            int userResult = RollTheDice(userChoice, "Пользователь");
 
             Console.WriteLine("Компьютер загадывает число от 2 до 12");
             Random random = new Random();
@@ -22,7 +22,16 @@ namespace MyProgram
             Console.WriteLine("Загаданное число (2..12): {0}", computerChoice);
             Console.WriteLine("Компьютер кинул кости:");
             
-            RollTheDice(computerChoice, "Компьютер");
+            int computerResult = RollTheDice(computerChoice, "Компьютер");
+
+            if (userResult > computerResult)
+            {
+                Console.WriteLine("Результат игры: Результат пользователя больше на {0} единиц", userResult - computerResult);
+            }
+            else
+            {
+                Console.WriteLine("Результат игры: Результат компьютера больше на {0} единиц", computerResult - userResult);
+            }
         }
 
         static string PrintDice(int number)
