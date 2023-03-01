@@ -36,57 +36,78 @@ namespace MyProgram
     {
         static void Main()
         {
-            GameRound[] gameRounds = new GameRound[3] { new GameRound(1), new GameRound(2), new GameRound(3) };
-
-            Console.WriteLine("---          Start game          ---");
-
-            for (int i = 0; i < gameRounds.Length; i++)
+            while (true)
             {
-                // User
-                Console.WriteLine("Загадайте число от 2 до 12");
-                gameRounds[i].userGues = int.Parse(Console.ReadLine());
-                
-                Console.WriteLine("Загаданное число (2..12): {0}", gameRounds[i].userGues);
-                Console.WriteLine("Пользователь кинул кости:");
-                
-                gameRounds[i].userResult = RollTheDice(gameRounds[i].userGues, "Пользователь", gameRounds[i]);
-                
-                
-                // Computer
-                Console.WriteLine("Компьютер загадывает число от 2 до 12");
-                Random random = new Random();
-                gameRounds[i].computerGues = random.Next(2, 13);
-                
-                Console.WriteLine("Загаданное число (2..12): {0}", gameRounds[i].computerGues);
-                Console.WriteLine("Компьютер кинул кости:");
-                
-                gameRounds[i].computerResult = RollTheDice(gameRounds[i].computerGues, "Компьютер", gameRounds[i]);
-                
-                
-                // Round result
-                Console.WriteLine("---------- Current score ---------");
-                Console.WriteLine(" User:       {0} points", gameRounds[i].userResult);
-                Console.WriteLine(" Computer:   {0} points", gameRounds[i].computerResult);
-                Console.WriteLine("\n");
-                
-                if (gameRounds[i].userResult > gameRounds[i].computerResult)
+                GameRound[] gameRounds = new GameRound[3] { new GameRound(1), new GameRound(2), new GameRound(3) };
+
+                Console.WriteLine("---          Start game          ---");
+
+                for (int i = 0; i < gameRounds.Length; i++)
                 {
-                    Console.WriteLine("Результат раунда: Результат пользователя больше на {0} единиц", gameRounds[i].userResult - gameRounds[i].computerResult);
+                    // User
+                    Console.WriteLine("Загадайте число от 2 до 12");
+                    gameRounds[i].userGues = int.Parse(Console.ReadLine());
+                    
+                    Console.WriteLine("Загаданное число (2..12): {0}", gameRounds[i].userGues);
+                    Console.WriteLine("Пользователь кинул кости:");
+                    
+                    gameRounds[i].userResult = RollTheDice(gameRounds[i].userGues, "Пользователь", gameRounds[i]);
+                    
+                    
+                    // Computer
+                    Console.WriteLine("Компьютер загадывает число от 2 до 12");
+                    Random random = new Random();
+                    gameRounds[i].computerGues = random.Next(2, 13);
+                    
+                    Console.WriteLine("Загаданное число (2..12): {0}", gameRounds[i].computerGues);
+                    Console.WriteLine("Компьютер кинул кости:");
+                    
+                    gameRounds[i].computerResult = RollTheDice(gameRounds[i].computerGues, "Компьютер", gameRounds[i]);
+                    
+                    
+                    // Round result
+                    Console.WriteLine("---------- Current score ---------");
+                    Console.WriteLine(" User:       {0} points", gameRounds[i].userResult);
+                    Console.WriteLine(" Computer:   {0} points", gameRounds[i].computerResult);
+                    Console.WriteLine("\n");
+                    
+                    if (gameRounds[i].userResult > gameRounds[i].computerResult)
+                    {
+                        Console.WriteLine("Результат раунда: Результат пользователя больше на {0} единиц", gameRounds[i].userResult - gameRounds[i].computerResult);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Результат раунда: Результат компьютера больше на {0} единиц", gameRounds[i].computerResult - gameRounds[i].userResult);
+                    }
+                }
+                
+                string gameResultMessage = string.Format(
+                    "-------------- Finish game ------------- \n" +
+                    " Round |           User |      Computer  \n" +
+                    gameRounds[0].GetMessage() + gameRounds[1].GetMessage() + gameRounds[2].GetMessage() +
+                    "-------+----------------+--------------- \n" +
+                    "Total  | Points:     {0} | Points:     {1} \n", (gameRounds[0].userResult + gameRounds[1].userResult + gameRounds[2].userResult), (gameRounds[0].computerResult + gameRounds[1].computerResult + gameRounds[2].computerResult));
+
+                Console.WriteLine(gameResultMessage);
+                
+                Console.WriteLine("Хотите сыграть ее раз? да или нет");
+                string userChoice = Console.ReadLine();
+
+                if (userChoice == "да")
+                {
+                    Console.WriteLine("Продолжаю работу");
+                    continue;
+                } else if (userChoice == "нет")
+                {
+                    Console.WriteLine("Завершаю работу");
+                    break;
                 }
                 else
                 {
-                    Console.WriteLine("Результат раунда: Результат компьютера больше на {0} единиц", gameRounds[i].computerResult - gameRounds[i].userResult);
+                    Console.WriteLine("Непонятная команда");
                 }
             }
-            
-            string gameResultMessage = string.Format(
-                "-------------- Finish game ------------- \n" +
-                " Round |           User |      Computer  \n" +
-                gameRounds[0].GetMessage() + gameRounds[1].GetMessage() + gameRounds[2].GetMessage() +
-                "-------+----------------+--------------- \n" +
-                "Total  | Points:     {0} | Points:     {1} \n", (gameRounds[0].userResult + gameRounds[1].userResult + gameRounds[2].userResult), (gameRounds[0].computerResult + gameRounds[1].computerResult + gameRounds[2].computerResult));
 
-            Console.WriteLine(gameResultMessage);
         }
 
         static string PrintDice(int number)
