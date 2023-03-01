@@ -87,8 +87,24 @@ namespace MyProgram
                     gameRounds[0].GetMessage() + gameRounds[1].GetMessage() + gameRounds[2].GetMessage() +
                     "-------+----------------+--------------- \n" +
                     "Total  | Points:     {0} | Points:     {1} \n", (gameRounds[0].userResult + gameRounds[1].userResult + gameRounds[2].userResult), (gameRounds[0].computerResult + gameRounds[1].computerResult + gameRounds[2].computerResult));
-
+                
                 Console.WriteLine(gameResultMessage);
+                
+                int userScore = gameRounds[0].userResult + gameRounds[1].userResult + gameRounds[2].userResult;
+                int computerScore = gameRounds[0].computerResult + gameRounds[1].computerResult +
+                                    gameRounds[2].computerResult;
+
+                if (userScore > computerScore)
+                {
+                    Console.WriteLine("Пользователь победил, разница в очках {0}", userScore - computerScore);
+                } else if (userScore == computerScore)
+                {
+                    Console.WriteLine("Ничья");
+                }
+                else
+                {
+                    Console.WriteLine("Компьютер победил, разница в очках {0}", computerScore - userScore);
+                }
                 
                 Console.WriteLine("Хотите сыграть ее раз? да или нет");
                 string userChoice = Console.ReadLine();
