@@ -34,78 +34,9 @@ namespace MyProgram
     }
     class Dice
     {
-        static int gameAttempt = 0;
-        
-        // static int firstRoundUserGues;
-        // static int firstRoundUserDice;
-        // static int firstRoundUserResult;
-        //     
-        // static int firstRoundComputerGues;
-        // static int firstRoundComputerDice;
-        // static int firstRoundComputerResult;
-        //
-        //
-        // static int secondRoundUserGues;
-        // static int secondRoundUserDice;
-        // static int secondRoundUserResult;
-        //     
-        // static int secondRoundComputerGues;
-        // static int secondRoundComputerDice;
-        // static int secondRoundComputerResult;
-        //
-        //
-        // static int thirdRoundUserGues;
-        // static int thirdRoundUserDice;
-        // static int thirdRoundUserResult;
-        //     
-        // static int thirdRoundComputerGues;
-        // static int thirdRoundComputerDice;
-        // static int thirdRoundComputerResult;
-
-        // static int userResult = firstRoundUserResult + secondRoundUserResult + thirdRoundUserResult;
-        // static int computerResult =
-        //     firstRoundComputerResult + secondRoundComputerResult + thirdRoundComputerResult;
-
-        public static string firstRoundResult;
-        public static string secondRoundResult;
-        public static string thirdRoundResult;
         static void Main()
         {
-            // GameRound roundOne = new GameRound(1);
-            // GameRound roundTwo = new GameRound(2);
-            // GameRound roundThree = new GameRound(3);
-            // Console.WriteLine(roundOne.GetMessage());
-            // Console.WriteLine(roundTwo.GetMessage());
-            // Console.WriteLine(roundThree.GetMessage());
-
             GameRound[] gameRounds = new GameRound[3] { new GameRound(1), new GameRound(2), new GameRound(3) };
-            
-            
-            
-            
-            // string firstRoundResult = string.Format(
-            //     "-------+----------------+--------------- \n" +
-            //     "       | Predicted:  {0}  | Predicted:  {3} \n" +
-            //     " - 1 - | Dice:       {1}  | Dice:       {4} \n" +
-            //     "       | Result:     {2}  | Result:     {5} \n",
-            //     firstRoundUserGues, firstRoundUserDice, firstRoundUserResult, firstRoundComputerGues, firstRoundComputerDice, firstRoundComputerResult
-            //     );
-            //
-            // string secondRoundResult = string.Format(
-            //     "-------+----------------+--------------- \n" +
-            //     "       | Predicted:  {0}  | Predicted:  {3} \n" +
-            //     " - 2 - | Dice:       {1}  | Dice:       {4} \n" +
-            //     "       | Result:     {2}  | Result:     {5} \n",
-            //     secondRoundUserGues, secondRoundUserDice, secondRoundUserResult, secondRoundComputerGues, secondRoundComputerDice, secondRoundComputerResult
-            // );
-            //
-            // string thirdRoundResult = string.Format(
-            //     "-------+----------------+--------------- \n" +
-            //     "       | Predicted:  {0}  | Predicted:  {3} \n" +
-            //     " - 2 - | Dice:       {1}  | Dice:       {4} \n" +
-            //     "       | Result:     {2}  | Result:     {5} \n",
-            //     thirdRoundUserGues, thirdRoundUserDice, thirdRoundUserResult, thirdRoundComputerGues, thirdRoundComputerDice, thirdRoundComputerResult
-            // );
 
             Console.WriteLine("---          Start game          ---");
 
@@ -156,102 +87,6 @@ namespace MyProgram
                 "Total  | Points:     {0} | Points:     {1} \n", (gameRounds[0].userResult + gameRounds[1].userResult + gameRounds[2].userResult), (gameRounds[0].computerResult + gameRounds[1].computerResult + gameRounds[2].computerResult));
 
             Console.WriteLine(gameResultMessage);
-            
-            
-            
-            // Console.WriteLine("---          Start game          ---");
-            
-            // while (gameAttempt < 3)
-            // {
-                // Console.WriteLine("Загадайте число от 2 до 12");
-                // int userChoice = int.Parse(Console.ReadLine());
-                
-                // Console.WriteLine("Загаданное число (2..12): {0}", userChoice);
-                // Console.WriteLine("Пользователь кинул кости:");
-                
-                // int userResult = RollTheDice(userChoice, "Пользователь");
-                
-                
-                // Console.WriteLine("Компьютер загадывает число от 2 до 12");
-                // Random random = new Random();
-                // int computerChoice = random.Next(2, 13);
-                // Console.WriteLine("Загаданное число (2..12): {0}", computerChoice);
-                // Console.WriteLine("Компьютер кинул кости:");
-            
-                // int computerResult = RollTheDice(computerChoice, "Компьютер");
-                
-                // Console.WriteLine("---------- Current score ---------");
-                // Console.WriteLine(" User:       {0} points", userResult);
-                // Console.WriteLine(" Computer:   {0} points", computerResult);
-                // Console.WriteLine("\n");
-            
-                // if (userResult > computerResult)
-                // {
-                //     Console.WriteLine("Результат раунда: Результат пользователя больше на {0} единиц", userResult - computerResult);
-                // }
-                // else
-                // {
-                //     Console.WriteLine("Результат раунда: Результат компьютера больше на {0} единиц", computerResult - userResult);
-                // }
-            
-            //     if (gameAttempt == 0)
-            //     {
-            //         firstRoundUserGues = userChoice;
-            //         firstRoundUserDice = userResult;
-            //
-            //         firstRoundComputerGues = computerChoice;
-            //         firstRoundComputerDice = computerResult;
-            //         
-            //         firstRoundResult = string.Format(
-            //             "-------+----------------+--------------- \n" +
-            //             "       | Predicted:  {0}  | Predicted:  {3} \n" +
-            //             " - 1 - | Dice:       {1}  | Dice:       {4} \n" +
-            //             "       | Result:     {2}  | Result:     {5} \n",
-            //             firstRoundUserGues, firstRoundUserDice, firstRoundUserResult, firstRoundComputerGues, firstRoundComputerDice, firstRoundComputerResult
-            //         );
-            //     } else if (gameAttempt == 1)
-            //     {
-            //         secondRoundUserGues = userChoice;
-            //         secondRoundUserDice = userResult;
-            //         
-            //         secondRoundComputerGues = computerChoice;
-            //         secondRoundComputerDice = computerResult;
-            //         
-            //         secondRoundResult = string.Format(
-            //             "-------+----------------+--------------- \n" +
-            //             "       | Predicted:  {0}  | Predicted:  {3} \n" +
-            //             " - 2 - | Dice:       {1}  | Dice:       {4} \n" +
-            //             "       | Result:     {2}  | Result:     {5} \n",
-            //             secondRoundUserGues, secondRoundUserDice, secondRoundUserResult, secondRoundComputerGues, secondRoundComputerDice, secondRoundComputerResult
-            //         );
-            //     } else if (gameAttempt == 2)
-            //     {
-            //         thirdRoundUserGues = userChoice;
-            //         thirdRoundUserDice = userResult;
-            //         
-            //         thirdRoundComputerGues = computerChoice;
-            //         thirdRoundComputerDice = computerResult;
-            //         
-            //         thirdRoundResult = string.Format(
-            //             "-------+----------------+--------------- \n" +
-            //             "       | Predicted:  {0}  | Predicted:  {3} \n" +
-            //             " - 2 - | Dice:       {1}  | Dice:       {4} \n" +
-            //             "       | Result:     {2}  | Result:     {5} \n",
-            //             thirdRoundUserGues, thirdRoundUserDice, thirdRoundUserResult, thirdRoundComputerGues, thirdRoundComputerDice, thirdRoundComputerResult
-            //         );
-            //     }
-            //     
-            //     gameAttempt++;
-            // }
-            
-            // string gameResult = string.Format(
-            //     "-------------- Finish game ------------- \n" +
-            //     " Round |           User |      Computer  \n" +
-            //     firstRoundResult + secondRoundResult + thirdRoundResult +
-            //     "-------+----------------+--------------- \n" +
-            //     "Total  | Points:     {0} | Points:     {1} \n", userResult, computerResult);
-            
-            // Console.WriteLine(gameResult);
         }
 
         static string PrintDice(int number)
@@ -300,20 +135,6 @@ namespace MyProgram
             {
                 round.computerDice = firstDice + secondDice;
             }
-            
-            // if (gameAttempt == 0)
-            // {
-            //     firstRoundUserResult = firstDice + secondDice;
-            //     firstRoundComputerResult = firstDice + secondDice;
-            // } else if (gameAttempt == 1)
-            // {
-            //     secondRoundUserResult = firstDice + secondDice;
-            //     secondRoundComputerResult = firstDice + secondDice;
-            // } else if (gameAttempt == 2)
-            // {
-            //     thirdRoundUserResult = firstDice + secondDice;
-            //     thirdRoundComputerResult = firstDice + secondDice;
-            // }
 
             if (formula > 0)
             {
